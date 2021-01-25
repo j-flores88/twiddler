@@ -13,9 +13,10 @@ $(document).ready(function(){
 
     $(home).hide();
     $(newTweeds).hide();
-    $(newTweeds).fadeIn(5000);
+ 
 
     function loadTweeds() {
+        $(newTweeds).fadeIn(5000);
         stream.forEach(tweet => {
             tweet = tweet
             $tweet = $('<div class=tweet></div>')
@@ -25,7 +26,6 @@ $(document).ready(function(){
                 let userHandle = $(this).text().slice(1);
                 userTimeLine(userHandle)
             })
-            //loadTweet($userName, tweet.message)
             $('.main').prepend($userName, ': ' + tweet.message, ' twiddled at ');
             $tweet.prependTo('.main');
         });
